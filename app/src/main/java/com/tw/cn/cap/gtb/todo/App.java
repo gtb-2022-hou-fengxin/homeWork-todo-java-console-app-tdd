@@ -14,9 +14,10 @@ public class App {
     public List<String> run() {
 //        return List.of("Task 01","Task 02","Task 03");
         try {
-            return Files.readAllLines(Path.of("/c/Users/86130/.todo/tasks"));
+            return Files.readAllLines(Path.of("C:\\Users\\86130\\.todo\\tasks"));
         } catch (IOException e) {
             throw new TodoCannotReadFileException();
         }
+//        return Files.readAllLines(Path.of("C:\\Users\\86130\\.todo\\tasks"));
     }
 }
