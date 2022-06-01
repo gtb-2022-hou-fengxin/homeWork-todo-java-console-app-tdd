@@ -12,18 +12,27 @@ public class App {
     }
 
     public List<String> run() {
-        final List<String> lines = readTaskLines();
-
+        final List<Task> tasks = loadTasks();
         final List<String> result = new ArrayList<>();
         result.add("# To be done");
-//        lines.forEach(line -> result.add(line));
-        //根据提示，使用 lambda with method reference
-//        lines.forEach(result::add);
-        for(int i=0;i<lines.size();i++){
-            //根据提示使用string.format进行输出
-            result.add(String.format("%d %s", i + 1, lines.get(i)));
+        for(var task : tasks){
+            result.add(task.format());
         }
         return result;
+    }
+
+    private List<Task> loadTasks() {
+        final List<String> lines = readTaskLines();
+
+        final List<Task> tasks = new ArrayList<>();
+        for(int i=0;i<lines.size();i++){
+            final var id = i+1;
+            final var line = lines.get(i);
+            final var name = line;
+            final var task = new Task(id,name);
+            tasks.add(task);
+        }
+        return tasks;
     }
 
     private List<String> readTaskLines() {
