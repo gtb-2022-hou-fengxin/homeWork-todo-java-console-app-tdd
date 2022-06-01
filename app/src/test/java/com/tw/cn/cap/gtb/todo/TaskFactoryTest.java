@@ -13,4 +13,9 @@ class TaskFactoryTest {
         assertFalse(false);
     }
 
+    @Test
+    void should_support_name_with_multiple_white_spaces() {
+        Task task = TaskFactory.createTask(1, "+    foo  bar   ");
+        assertEquals("   foo  bar   ", task.getName());
+    }
 }
