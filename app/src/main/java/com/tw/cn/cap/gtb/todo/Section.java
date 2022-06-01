@@ -38,6 +38,9 @@ public class Section {
                 .filter(this::isTypeMatched)
                 .map(Task::format)
                 .forEach(result::add);
+        if(result.size()==1){
+            result.add("Empty");
+        }
         return result;
     }
 
