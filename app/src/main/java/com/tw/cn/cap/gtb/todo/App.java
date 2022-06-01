@@ -16,7 +16,13 @@ public class App {
 
         final List<String> result = new ArrayList<>();
         result.add("# To be done");
-        result.addAll(lines);
+//        lines.forEach(line -> result.add(line));
+        //根据提示，使用 lambda with method reference
+//        lines.forEach(result::add);
+        for(int i=0;i<lines.size();i++){
+            //根据提示使用string.format进行输出
+            result.add(String.format("%d %s", i + 1, lines.get(i)));
+        }
         return result;
     }
 
