@@ -5,3 +5,5 @@ ctrl+shift+F10  运行代码
 ctrl+alt+L   格式化代码
 shift+alt+ctrl+T 将常量进行提取，放到工具类Constants中
 alt+insert 创建构造类和getter和setter方法
+alt+shift + ↓ 下移代码
+ctrl + alt + N 代码的逆向提取 

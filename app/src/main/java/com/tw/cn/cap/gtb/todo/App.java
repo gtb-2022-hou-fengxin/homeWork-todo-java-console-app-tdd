@@ -12,16 +12,19 @@ public class App {
     }
 
     public List<String> run() {
-//        return List.of("Task 01","Task 02","Task 03");
+        final List<String> lines = readTaskLines();
+
+        final List<String> result = new ArrayList<>();
+        result.add("# To be done");
+        result.addAll(lines);
+        return result;
+    }
+
+    private List<String> readTaskLines() {
         try {
-//            return Files.readAllLines(Path.of("C:\\Users\\86130\\.todo\\tasks"));
-            final List<String> result = new ArrayList<>();
-            result.add("# To be done");
-            result.addAll(Files.readAllLines(Constants.TASKS_FILE_PATH));
-            return result;
+            return Files.readAllLines(Constants.TASKS_FILE_PATH);
         } catch (IOException e) {
             throw new TodoCannotReadFileException();
         }
-//        return Files.readAllLines(Path.of("C:\\Users\\86130\\.todo\\tasks"));
     }
 }
