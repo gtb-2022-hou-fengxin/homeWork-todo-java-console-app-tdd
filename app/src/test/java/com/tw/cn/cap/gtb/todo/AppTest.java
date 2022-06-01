@@ -16,6 +16,9 @@ class AppTest {
                 "# To be done",
                 "1 Task 01",
                 "2 Task 02",
-                "3 Task 03"),result);
+                "3 Task 03",
+                "# Completed",
+                "4 Task 04",
+                "5 Task 05"),result);
     }
 }

@@ -15,9 +15,16 @@ public class App {
         final List<Task> tasks = taskRepository.loadTasks();
         final List<String> result = new ArrayList<>();
         result.add("# To be done");
-        for(var task : tasks){
-            result.add(task.format());
-        }
+        tasks.stream()
+                .filter(task -> ! task.isCompleted())
+                .map(Task::format)
+                .forEach(result::add);
+
+        result.add("# Completed");
+        tasks.stream()
+                .filter(Task::isCompleted)
+                .map(Task::format)
+                .forEach(result::add);
         return result;
     }
 
