@@ -70,6 +70,25 @@ class AppTest {
                         "5 Task 05"),result);
             }
         }
+        @Nested
+        class WhenMultipleWordsProvidedAsName{
+            @Test
+            void should_add_task_all_words_as_name(){
+                //ctrl +alt + T提取变量
+//                final var app =new App();
+                app.run("add","fizz","buzz");
+                final var result = app.run();
+                Assertions.assertEquals(List.of(
+                        "# To be done",
+                        "1 Task 01",
+                        "2 Task 02",
+                        "3 Task 03",
+                        "6 fizz buzz",
+                        "# Completed",
+                        "4 Task 04",
+                        "5 Task 05"),result);
+            }
+        }
 
     }
 
