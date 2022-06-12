@@ -14,6 +14,7 @@ class SectionTest {
     void should_show_hint_message_when_section_has_no_tasks() {
         final var result = Section.toBeDone().format(Collections.emptyList());
         Assertions.assertEquals(List.of("# To be done","Empty"), result);
-        Assertions.assertEquals(List.of("# Completed","Empty"), Section.completed().format(Collections.emptyList()));
+        Assertions.assertEquals(List.of("# Completed","Empty"),
+                Section.completed().format(Collections.emptyList()));
     }
 }
