@@ -18,7 +18,7 @@ class AddCommandTest {
 
     @Test
     void should_compose_task_name_using_multiple_args(){
-        final AddCommand addCommand = createCommandFrom("add", "fizz", "buzz");
+        final AddCommand addCommand = createCommandFrom("fizz", "buzz");
 
         addCommand.execute();
 //        final var taskName = taskRepository.getTaskName();
@@ -27,7 +27,7 @@ class AddCommandTest {
     }
     @Test
     void should_use_empty_name_when_no_args_provides(){
-        final AddCommand addCommand = createCommandFrom("add");
+        final AddCommand addCommand = createCommandFrom();
 
         addCommand.execute();
         verify(taskRepository).create(new Task(0,"",false));
