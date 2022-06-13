@@ -13,11 +13,14 @@ public class App {
     }
 
     public List<String> run(String... args) {
-        if(args.length > 0 && args[0].equals("add")){
-            final var restArgs = Arrays.copyOfRange(args,1,args.length);
+        if (args.length <= 0) {
+            return listCommand.run();
+        }
+        if (args[0].equals("add")) {
+            final var restArgs = Arrays.copyOfRange(args, 1, args.length);
             return new AddCommand(new TaskRepository(), restArgs).execute();
         }
-        if(args.length > 0 && args[0].equals("remove")){
+        if(args[0].equals("remove")){
             final var restArgs = Arrays.copyOfRange(args,1,args.length);
             return new AddCommand(new TaskRepository(), restArgs).execute();
         }
