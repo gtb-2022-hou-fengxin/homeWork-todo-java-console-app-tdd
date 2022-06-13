@@ -109,6 +109,20 @@ class AppTest {
                         "5 Task 05"),result);
             }
         }
+        @Nested
+        class WhenRemoveMultipleTasks{
+            @Test
+            void should_remove_them_all(){
+                app.run("remove","1","4");
+                final var result = app.run();
+                Assertions.assertEquals(List.of(
+                        "# To be done",
+                        "2 Task 02",
+                        "3 Task 03",
+                        "# Completed",
+                        "5 Task 05"),result);
+            }
+        }
     }
 
     private void writeDataFile(List<String> lines) {
