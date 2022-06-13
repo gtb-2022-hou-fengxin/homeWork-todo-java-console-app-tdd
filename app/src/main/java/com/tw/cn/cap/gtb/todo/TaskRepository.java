@@ -21,21 +21,22 @@ public class TaskRepository {
         return tasks;
     }
 
-    List<String> readTaskLines() {
-        try {
-            return Files.readAllLines(Constants.TASKS_FILE_PATH);
-        } catch (IOException e) {
-            throw new TodoException();
-        }
-    }
 
-    List<String> create(Task task) {
+
+    public void create(Task task) {
         final var taskName = task.getName();
         try (var bw = Files.newBufferedWriter(Constants.TASKS_FILE_PATH, StandardOpenOption.APPEND)) {
             bw.write("+ " + taskName);
         } catch (IOException e) {
             throw new TodoException();
         }
-        return List.of();
+    }
+
+    List<String> readTaskLines() {
+        try {
+            return Files.readAllLines(Constants.TASKS_FILE_PATH);
+        } catch (IOException e) {
+            throw new TodoException();
+        }
     }
 }

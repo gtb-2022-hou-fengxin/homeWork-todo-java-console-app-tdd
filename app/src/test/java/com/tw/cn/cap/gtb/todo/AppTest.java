@@ -92,6 +92,26 @@ class AppTest {
 
     }
 
+    @Nested
+    class RemoveTask{
+        @Nested
+        class WhenSingleIdProvided{
+            @Test
+            void should_remove_single_task(){
+                app.run("remove","1");
+                final var result = app.run();
+                Assertions.assertEquals(List.of(
+                        "# To be done",
+                        "2 Task 02",
+                        "3 Task 03",
+                        "6 foobar",
+                        "# Completed",
+                        "4 Task 04",
+                        "5 Task 05"),result);
+            }
+        }
+    }
+
     private void writeDataFile(List<String> lines) {
         try (var bw = Files.newBufferedWriter(Constants.TASKS_FILE_PATH)) {
             for(String line : lines){
