@@ -17,11 +17,11 @@ class AppTest {
     @BeforeEach
     void setUp(){
         writeDataFile(List.of(
-                "+ Task 01",
-                "+ Task 02",
-                "+ Task 03",
-                "* Task 04",
-                "* Task 05"));
+                "+ + Task 01",
+                "+ + Task 02",
+                "+ + Task 03",
+                "* + Task 04",
+                "* + Task 05"));
         app = new App();
     }
 
@@ -104,7 +104,6 @@ class AppTest {
                         "# To be done",
                         "2 Task 02",
                         "3 Task 03",
-                        "6 foobar",
                         "# Completed",
                         "4 Task 04",
                         "5 Task 05"),result);

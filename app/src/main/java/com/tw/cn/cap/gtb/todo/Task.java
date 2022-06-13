@@ -6,11 +6,14 @@ public class Task {
     private final int id;
     private final String name;
     private final boolean isCompleted;
+    private boolean deleted;
 
-    public Task(int id, String name, boolean isCompleted) {
+
+    public Task(int id, String name, boolean isCompleted, boolean deleted) {
         this.id = id;
         this.name = name;
         this.isCompleted = isCompleted;
+        this.deleted = deleted;
     }
 
     public int getId() {
@@ -46,5 +49,13 @@ public class Task {
         if(obj == null || getClass() != obj.getClass()) return  false;
         Task task = (Task) obj;
         return id == task.id && isCompleted == task.isCompleted && name.equals(task.name);
+    }
+
+    public void delete() {
+        this.deleted = true;
+    }
+
+    public boolean isDeleted() {
+        return this.deleted;
     }
 }

@@ -23,14 +23,14 @@ class AddCommandTest {
         addCommand.execute();
 //        final var taskName = taskRepository.getTaskName();
 //        assertEquals("fizz buzz", taskName);
-        verify(taskRepository).create(new Task(0,"fizz buzz",false));
+        verify(taskRepository).create(new Task(0,"fizz buzz",false, false));
     }
     @Test
     void should_use_empty_name_when_no_args_provides(){
         final AddCommand addCommand = createCommandFrom();
 
         addCommand.execute();
-        verify(taskRepository).create(new Task(0,"",false));
+        verify(taskRepository).create(new Task(0,"",false, false));
     }
 
     private AddCommand createCommandFrom(String... strings) {

@@ -16,13 +16,12 @@ public class App {
         if (args.length <= 0) {
             return listCommand.run();
         }
+        final var restArgs = Arrays.copyOfRange(args, 1, args.length);
         if (args[0].equals("add")) {
-            final var restArgs = Arrays.copyOfRange(args, 1, args.length);
             return new AddCommand(new TaskRepository(), restArgs).execute();
         }
         if(args[0].equals("remove")){
-            final var restArgs = Arrays.copyOfRange(args,1,args.length);
-            return new AddCommand(new TaskRepository(), restArgs).execute();
+            return new RemoveCommand(new TaskRepository(), restArgs).execute();
         }
         return listCommand.run();
 
